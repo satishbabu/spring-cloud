@@ -8,6 +8,7 @@ This project will have microservices using the latest spring cloud components
 | Limits Services | 8080 |
 | Spring Config Server | 8888 |
 | Currency Exchnage Service | 8000 |
+| Currency Conversion Service | 8100 |
 
 
 ## Autoreload in intellij
