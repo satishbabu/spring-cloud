@@ -1,2 +1,8 @@
-package com.apnatriangle.currencyexchangeservice;public interface CurrencyExchangeRepository {
+package com.apnatriangle.currencyexchangeservice;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CurrencyExchangeRepository
+        extends JpaRepository<CurrencyExchange, Long> {
+    CurrencyExchange findByFromAndTo(String from, String to);
 }
