@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class CiruitBreakerController {
 
     @GetMapping("/sample-api")
-    @Retry(name="sample-api")
+    @Retry(name="sample-api", fallbackMethod = "hardcodedResponse")
     public String sampleApi() {
         log.info("In sampleApi()");
 
@@ -22,4 +22,7 @@ public class CiruitBreakerController {
         return forEntity.getBody();
     }
 
+    public String hardcodedResponse(Exception ex) {
+        return "fallback-response";
+    }
 }

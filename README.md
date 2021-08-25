@@ -44,3 +44,20 @@ Custom Routes
 - http://localhost:8765/currency-conversion/from/USD/to/INR/quantity/10
 - http://localhost:8765/currency-conversion-feign/from/USD/to/INR/quantity/10
 - http://localhost:8765/currency-conversion-new/from/USD/to/INR/quantity/10
+
+
+## Resiliency
+Added CircuitBreakerController with @Retry.  It fails after 3 retries - http://localhost:8001/sample-api
+
+
+## Distributed tracing using zipkin 
+Run zipking in docker using command 'docker run -p 9411:9411 openzipkin/zipkin:2.23'.  The visit page http://localhost:9411/zipkin/
+
+Add spring-cloud-started-sleuth and spring-cloud-sleuth-zipkin to projects so that Sleuth generates the trace id that gets propagated in each spring call.  Add spring.sleuth.sampler.probability to the application properties to specifies amount of logging (1.0 means 100%)
+
+
+## Build Image
+Add configuration entry for image and pullPolicy into maven build plugins in pom.xml. After that run following to build image - 'mvn spring-boot:build-image -DskipTests'.  Run the container using 'docker run -p 8000:8000 in28min/mmv2-currency-exchange-service:0.0.1-SNAPSHOT'.  Note that in28min/mmv2-.. was added as image name.
+
+
+
