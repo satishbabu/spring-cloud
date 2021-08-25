@@ -59,5 +59,7 @@ Add spring-cloud-started-sleuth and spring-cloud-sleuth-zipkin to projects so th
 ## Build Image
 Add configuration entry for image and pullPolicy into maven build plugins in pom.xml. After that run following to build image - 'mvn spring-boot:build-image -DskipTests'.  Run the container using 'docker run -p 8000:8000 in28min/mmv2-currency-exchange-service:0.0.1-SNAPSHOT'.  Note that in28min/mmv2-.. was added as image name.
 
+## Docker compose
+go to docker directory and run 'docker-compose up'
 
 
